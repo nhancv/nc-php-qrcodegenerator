@@ -1,0 +1,20 @@
+########## Begin - RewriteEngine enabled
+RewriteEngine On
+########## End - RewriteEngine enabled
+
+########## Begin - No directory listings
+IndexIgnore *
+########## End - No directory listings
+
+########## Begin - File execution order
+DirectoryIndex index.php index.html
+########## End - File execution order
+
+########## Begin - ETag Optimization
+## This rule will create an ETag for files based only on the modification
+## timestamp and their size. This works wonders if you are using rsync'ed
+## servers, where the inode number of identical files differs.
+## Note: It may cause problems on your server and you may need to remove it
+FileETag MTime Size
+########## End - ETag Optimization
+ErrorDocument 404 /index.html
