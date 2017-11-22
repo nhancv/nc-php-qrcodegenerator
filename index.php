@@ -11,16 +11,14 @@
 	}
 
     $filePath = './tmp/'.md5($data).'.png';
-    echo $filePath;
 
-    QRCode::png($data, $filePath, QR_ECLEVEL_H, 10);
+    QRCode::png($data, $filePath, QR_ECLEVEL_H, 4);
     
     // Gen Base64 image string
     // ob_start();
     // QRCode::png($data, null, QR_ECLEVEL_H, 10);
     // $image = base64_encode(ob_get_contents());
     // ob_end_clean();
-    $image = "";
 ?>
 
 
