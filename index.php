@@ -11,7 +11,7 @@
     
     // Gen Base64 image string
     ob_start();
-    QRCode::png($data, null, QR_ECLEVEL_H, 4);
+    QRCode::png($data, null, QR_ECLEVEL_H, 10);
     $image = base64_encode(ob_get_contents());
     ob_end_clean();
 ?>
