@@ -1,5 +1,5 @@
 <?php 
-
+    ini_set('display_errors', 1);
     $data = "http://nhancv.github.io/";
     $author = "Nhan Cao";
     $description = "QRCode generate";
