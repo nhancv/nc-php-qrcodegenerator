@@ -1,4 +1,6 @@
 <?php 
+    
+    include('./phpqrcode/qrlib.php'); 
     ini_set('display_errors', 1);
     $data = "http://nhancv.github.io/";
     $author = "Nhan Cao";
@@ -8,6 +10,11 @@
 	    $data = $_GET['data'];
 	}
 
+
+    ob_start();
+    QRCode::png($data, null);
+    $image = base64_encode( ob_get_contents() );
+    ob_end_clean();
 ?>
 
 
@@ -23,15 +30,15 @@
     <!--Meta tag for facebook share-->
     <meta property="og:url" content="<?php echo $data ?>"/>
     <meta property="og:description" content="<?php echo $description ?>"/>
-    <meta property="og:image" content="qrcodegen.php?data=<? echo $data ?>"/>
+    <meta property="og:image" content="data:image/png;base64,<?php echo $image ?>"/>
 
     <meta name="url" content="<?php echo $data ?>"/>
     <meta name="author" content="<?php echo $author ?>" />
     <meta name="description" content="<?php echo $description ?>" />
-    <meta name="image" content="qrcodegen.php?data=<? echo $data ?>"/>
+    <meta name="image" content="data:image/png;base64,<?php echo $image ?>"/>
 </head>
 <body>
-<img src="qrcodegen.php?data=<? echo $data ?>">
+<img src="data:image/png;base64,<?php echo $image ?>">
 <br>
 <?php echo $data ?>
 
