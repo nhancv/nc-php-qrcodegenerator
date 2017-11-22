@@ -10,11 +10,17 @@
 	    $data = $_GET['data'];
 	}
 
+    $filePath = './tmp/'.md5($data).'.png';
+    echo $filePath;
 
-    ob_start();
-    QRCode::png($data, null, QR_ECLEVEL_H, 10);
-    $image = base64_encode( ob_get_contents() );
-    ob_end_clean();
+    QRCode::png($data, $filePath, QR_ECLEVEL_H, 10);
+    
+    // Gen Base64 image string
+    // ob_start();
+    // QRCode::png($data, null, QR_ECLEVEL_H, 10);
+    // $image = base64_encode(ob_get_contents());
+    // ob_end_clean();
+    $image = "";
 ?>
 
 
@@ -36,22 +42,23 @@
     <!--Meta tag for facebook share-->
     <meta property="og:url" content="<?php echo $data ?>">
     <meta property="og:description" content="<?php echo $description ?>">
-    <meta property="og:image" content="data:image/png;base64,<?php echo $image; ?>">
+    <meta property="og:image" content="<?php echo $filePath; ?>">
 
     <meta name="url" content="<?php echo $data ?>">
     <meta name="author" content="<?php echo $author ?>" >
     <meta name="description" content="<?php echo $description ?>" >
     <meta name="image" content="data:image/png;base64,<?php echo $image; ?>">
-    <meta name="twitter:image" content="data:image/png;base64,<?php echo $image; ?>">
+    <meta name="twitter:image" content="<?php echo $filePath; ?>">
 
     <meta itemprop="name" content="<?php echo $author ?>">
     <meta itemprop="description" content="<?php echo $description ?>.">
-    <meta itemprop="image" content="data:image/png;base64,<?php echo $image; ?>">
-    
+    <meta itemprop="image" content="<?php echo $filePath; ?>">
+
 </head>
 <body style="text-align: center;">
-<img src="data:image/png;base64,<?php echo $image; ?>">
+<!-- <img style="max-width: 500px;" src="data:image/png;base64,<?php echo $image; ?>"> -->
 
+<img style="max-width: 500px;" src="<?php echo $filePath; ?>">
 <div><?php echo $data ?></div>
 
 </body>
