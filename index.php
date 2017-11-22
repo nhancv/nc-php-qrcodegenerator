@@ -43,6 +43,11 @@
     <meta name="description" content="<?php echo $description ?>" >
     <meta name="image" content="data:image/png;base64,<?php echo $image; ?>">
     <meta name="twitter:image" content="data:image/png;base64,<?php echo $image; ?>">
+
+    <meta itemprop="name" content="<?php echo $author ?>">
+    <meta itemprop="description" content="<?php echo $description ?>.">
+    <meta itemprop="image" content="data:image/png;base64,<?php echo $image; ?>">
+    
 </head>
 <body style="text-align: center;">
 <img src="data:image/png;base64,<?php echo $image; ?>">
