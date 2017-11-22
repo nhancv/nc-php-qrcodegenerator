@@ -1,5 +1,5 @@
 <?php 
-    
+    //http://phpqrcode.sourceforge.net/
     include('./phpqrcode/qrlib.php'); 
     ini_set('display_errors', 1);
     $data = "http://nhancv.github.io/";
@@ -12,7 +12,7 @@
 
 
     ob_start();
-    QRCode::png($data, null);
+    QRCode::png($data, null, QR_ECLEVEL_H, 10);
     $image = base64_encode( ob_get_contents() );
     ob_end_clean();
 ?>
@@ -37,10 +37,10 @@
     <meta name="description" content="<?php echo $description ?>" />
     <meta name="image" content="data:image/png;base64,<?php echo $image ?>"/>
 </head>
-<body>
+<body style="text-align: center;">
 <img src="data:image/png;base64,<?php echo $image ?>">
-<br>
-<?php echo $data ?>
+
+<div><?php echo $data ?></div>
 
 </body>
 </html>
