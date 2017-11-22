@@ -23,15 +23,15 @@
     <!--Meta tag for facebook share-->
     <meta property="og:url" content="<?php echo $data ?>"/>
     <meta property="og:description" content="<?php echo $description ?>"/>
-    <meta property="og:image" content="qrcodegen.php?data='.$data.'"/>
+    <meta property="og:image" content="qrcodegen.php?data=<? echo $data ?>"/>
 
     <meta name="url" content="<?php echo $data ?>"/>
     <meta name="author" content="<?php echo $author ?>" />
     <meta name="description" content="<?php echo $description ?>" />
-    <meta name="image" content="qrcodegen.php?data='.$data.'"/>
+    <meta name="image" content="qrcodegen.php?data=<? echo $data ?>"/>
 </head>
 <body>
-<img src="qrcodegen.php?data=$data">
+<img src="qrcodegen.php?data=<? echo $data ?>">
 <br>
 <?php echo $data ?>
 
